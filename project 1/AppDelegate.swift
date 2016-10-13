@@ -1,4 +1,4 @@
-//
+	//
 //  AppDelegate.swift
 //  project 1
 //
@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
+        let loginVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! loginVC
+        let navController = navigationcontrollerBase(rootViewController: loginVC)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
         return true
     }
 
